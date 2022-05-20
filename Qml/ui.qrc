@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>PbFlickable.qml</file>
+        <file>PbLabel.qml</file>
+    </qresource>
+</RCC>
