@@ -12,7 +12,7 @@ QMLCACHE_DIR = Build/
 CONFIG += c++11
 
 SOURCES += Sources/main.cpp \
-    Sources/pb_bar.cpp
+    Sources/bpb_bar.cpp
 
 
 RESOURCES += Qml/ui.qrc \
@@ -24,4 +24,4 @@ OTHER_FILES += Qml/*.qml
 QML_IMPORT_PATH += Qml/
 
 HEADERS += \
-    Sources/pb_bar.h
+    Sources/bpb_bar.h

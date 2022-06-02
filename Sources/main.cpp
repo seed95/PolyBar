@@ -2,7 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QDebug>
 
-#include "pb_bar.h"
+#include "bpb_bar.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     engine.load(url);
     QObject *mainItem = engine.rootObjects().first();
 
-    PbBar *bar = new PbBar(mainItem);
+    BpbBar *bar = new BpbBar(mainItem);
 
     return app.exec();
 }
