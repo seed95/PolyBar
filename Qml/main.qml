@@ -59,7 +59,6 @@ Window {
     BpbFlickable
     {
         id: right_bar
-//        width: parent.width / 2
         height: parent.height
         anchors.right: parent.right
         anchors.left: date_label.right
@@ -67,7 +66,4 @@ Window {
         direction: Qt.RightToLeft
         objectName: "RightBar"
     }
-
-
-
 }

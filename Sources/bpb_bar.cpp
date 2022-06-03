@@ -177,8 +177,9 @@ void BpbBar::showLabels(QVector<BpbLabel> labels, QObject *list_ui, bool reverse
         for(int i=labels.length()-1 ; i>=0 ; i--)
         {
             QQmlProperty::write(list_ui, "labelBackgroundColor", labels[i].properties.background_color);
-            QQmlProperty::write(list_ui, "labelHaveUnderline", labels[i].properties.have_underline);
             QQmlProperty::write(list_ui, "labelTextColor", labels[i].properties.label_color);
+            QQmlProperty::write(list_ui, "labelUnderlineColor", labels[i].properties.underline_color);
+            QQmlProperty::write(list_ui, "labelHaveUnderline", labels[i].properties.have_underline);
             QQmlProperty::write(list_ui, "labelContent", labels[i].content);
             QQmlProperty::write(list_ui, "labelActionString", labels[i].properties.action);
             QMetaObject::invokeMethod(list_ui, "addLabel");

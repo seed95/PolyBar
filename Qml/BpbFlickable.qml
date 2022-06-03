@@ -8,8 +8,9 @@ Rectangle {
 
     // Set this variables in cpp
     property string labelBackgroundColor: ""
-    property bool   labelHaveUnderline: false
     property string labelTextColor: ""
+    property string labelUnderlineColor: ""
+    property bool   labelHaveUnderline: false
     property string labelContent: ""
     property string labelActionString: ""
 
@@ -45,15 +46,14 @@ Rectangle {
                 height: parent.height
                 anchors.top: parent.top
                 color_background: colorBackground
+                color_label: labelColor
+                color_underline: underlineColor
                 underline: haveUnderline
-                label_color: labelColor
                 label_text: labelText
                 label_action: labelAction
 
                 onLabelClicked: executeAction(labelAction)
             }
-
-            onFocusChanged: console.log(lv.width, lv.x)
         }
     }
 
@@ -67,8 +67,9 @@ Rectangle {
     {
         lm.append({
                       "colorBackground": container.labelBackgroundColor,
-                      "haveUnderline": container.labelHaveUnderline,
                       "labelColor": container.labelTextColor,
+                      "underlineColor": container.labelUnderlineColor,
+                      "haveUnderline": container.labelHaveUnderline,
                       "labelText": container.labelContent,
                       "labelAction": container.labelActionString
                   })
