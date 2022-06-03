@@ -1,1 +1,1 @@
-    sajad      %{B#44ffffff}   hello    %{F#f3c84a} lolo %{B-}%{F-} dadashi 
+sajad   chetoru dadashi cheotry   aljfaf %{B#000}  %{+U} hello %{F#f3c84a} lolo %{B-}%{F-}dadashi aadsfaf

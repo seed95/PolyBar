@@ -2,20 +2,33 @@
 
 BpbBar::BpbBar(QObject *root, QObject *parent) : QObject(parent)
 {
+    // List ui
     left_bar_ui =   root->findChild<QObject*>("LeftBar");
     right_bar_ui =  root->findChild<QObject*>("RightBar");
 
     connect(left_bar_ui, SIGNAL(executeAction(QString)), this, SLOT(executeCommand(QString)));
     connect(right_bar_ui, SIGNAL(executeAction(QString)), this, SLOT(executeCommand(QString)));
 
+    // Timer
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateLabels()));
+    timer->start(100);
+
+    // Load labels
     loadLabels(BPB_LEFT_LABEL_PATH, left_bar_ui);
     loadLabels(BPB_RIGHT_LABEL_PATH, right_bar_ui, true);
 }
 
-/***************** Execute Action Slot *****************/
+/***************** Private Slots *****************/
 void BpbBar::executeCommand(QString action)
 {
     qDebug() << "execute" << action;
+}
+
+void BpbBar::updateLabels()
+{
+    loadLabels(BPB_LEFT_LABEL_PATH, left_bar_ui);
+    loadLabels(BPB_RIGHT_LABEL_PATH, right_bar_ui, true);
 }
 
 /***************** Private Functions *****************/
@@ -57,11 +70,13 @@ void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)
             {
                 n = start_property_index - current_index;
             }
-            //TODO check midRef method
             content = data.mid(current_index, n);
-            label.content = "<div style = 'font-family: Roboto, fa6-solid'>" + content + "</div>";
-//            label.content = content;
-            labels.append(label);
+            if (!content.isEmpty())
+            {
+                content = content.replace(" ", " &nbsp;");
+                label.content = "<div style = 'font-family: Roboto, fa6-solid'>" + content + "</div>";
+                labels.append(label);
+            }
 
             // All labels are read
             if (start_property_index == -1)
@@ -74,9 +89,8 @@ void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)
             end_property_index = data.indexOf(end_property_characters, start_property_index);
             if (end_property_index == -1)
             {
-                //TODO invalid file format
-                qDebug() << "end of property not found!!!!!";
-                n = -1;
+                logError("Invalid format. '" + path + "'");
+                return;
             }
             else
             {
@@ -97,7 +111,7 @@ void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)
     }
     else
     {
-        qDebug() << "Cann't open" + path;
+        logError("Cann't open '" + path + "'");
     }
 
 }
@@ -165,7 +179,7 @@ void BpbBar::updateProperty(QString rawProperty, BpbProperty *properties)
     }
     else
     {
-        qDebug() << "property not implemented" << rawProperty;
+        logError("Invalid property: " + rawProperty);
     }
 
 }
@@ -192,11 +206,30 @@ void BpbBar::showLabels(QVector<BpbLabel> labels, QObject *list_ui, bool reverse
         foreach (auto label, labels)
         {
             QQmlProperty::write(list_ui, "labelBackgroundColor", label.properties.background_color);
-            QQmlProperty::write(list_ui, "labelHaveUnderline", label.properties.have_underline);
             QQmlProperty::write(list_ui, "labelTextColor", label.properties.label_color);
+            QQmlProperty::write(list_ui, "labelUnderlineColor", label.properties.underline_color);
+            QQmlProperty::write(list_ui, "labelHaveUnderline", label.properties.have_underline);
             QQmlProperty::write(list_ui, "labelContent", label.content);
             QQmlProperty::write(list_ui, "labelActionString", label.properties.action);
             QMetaObject::invokeMethod(list_ui, "addLabel");
         }
+    }
+}
+
+/***************** Log Function *****************/
+void BpbBar::logError(QString message)
+{
+    QFile log_file(BPB_LOG_FILE);
+    if (log_file.open(QIODevice::Append))
+    {
+        QLocale en_localce(QLocale::English);
+        QString date = en_localce.toString(QDateTime::currentDateTime(), "(dd/MM hh:mm:ss) : ");
+        QTextStream stream(&log_file);
+        stream << date << message << "\n";
+        log_file.close();
+    }
+    else
+    {
+        qDebug() << "Cann't open log file";
     }
 }
