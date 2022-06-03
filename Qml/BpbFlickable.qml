@@ -25,7 +25,6 @@ Rectangle {
         height: parent.height
         anchors.left: parent.left
         anchors.top: parent.top
-        //        flickableDirection: Flickable.HorizontalFlick
         clip: true
 
         ListView
@@ -36,6 +35,7 @@ Rectangle {
             anchors.topMargin: 15
             orientation: ListView.Horizontal
             layoutDirection: direction
+            interactive: contentWidth>width
             model: ListModel
             {
                 id: lm
@@ -52,6 +52,8 @@ Rectangle {
 
                 onLabelClicked: executeAction(labelAction)
             }
+
+            onFocusChanged: console.log(lv.width, lv.x)
         }
     }
 

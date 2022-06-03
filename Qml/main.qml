@@ -7,14 +7,9 @@ Window {
     id: root
 
     visible: true
-    width: 1500
     height: 30
     x: 0
     y: 0
-    minimumHeight: height
-    maximumHeight: height
-    minimumWidth: width
-    maximumWidth: width
     title: "PolyBar"
     color: "#000000"
 //    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint

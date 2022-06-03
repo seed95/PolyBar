@@ -18,6 +18,7 @@ void BpbBar::executeCommand(QString action)
     qDebug() << "execute" << action;
 }
 
+/***************** Private Functions *****************/
 void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)
 {
     QFile label_file(path);

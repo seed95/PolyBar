@@ -9,7 +9,7 @@
 
 
 #define BPB_LEFT_LABEL_PATH     "Test/test1.txt"
-#define BPB_RIGHT_LABEL_PATH    "Test/test2.txt"
+#define BPB_RIGHT_LABEL_PATH    "Test/test4.txt"
 
 #define BPB_DEFAULT_BACKGROUND_COLOR    "#000000"
 #define BPB_DEFAULT_LABEL_COLOR         "#dfdfdf"

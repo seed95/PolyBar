@@ -1,1 +1,1 @@
-%{B#44ffffff} hello %{F#f3c84a}%{u#343434}%{+u} lolo %{A1:"~/.config/polybar/awesomewm/switch.sh" 1:}    %{A}%{-u}%{B-}%{F-}%{B#44ffffff} hello %{F#f3c84a}%{u#343434}%{+u} lolo %{A1:"~/.config/polybar/awesomewm/switch.sh" 1:}    %{A}%{-u}%{B-}%{F-}%{B#44ffffff} hello %{F#f3c84a}%{u#343434}%{+u} lolo %{A1:"~/.config/polybar/awesomewm/switch.sh" 1:}    %{A}%{-u}%{B-}%{F-}
+%{B#44ffffff} hello %{F#f3c84a}%{u#343434}%{+u} lolo %{A1:"~/.config/polybar/awesomewm/switch.sh" 1:}    %{A}%{-u}%{B-}%{F-}
