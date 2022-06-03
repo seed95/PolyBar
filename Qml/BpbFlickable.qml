@@ -3,6 +3,7 @@ import QtQuick 2.0
 Rectangle {
     id: container
 
+    // Set this variables in qml
     property int direction: Qt.LeftToRight
 
     // Set this variables in cpp
@@ -11,6 +12,9 @@ Rectangle {
     property string labelTextColor: ""
     property string labelContent: ""
     property string labelActionString: ""
+
+    // Cpp Signals
+    signal executeAction(string action)
 
     color: "#000000"
 
@@ -46,7 +50,7 @@ Rectangle {
                 label_text: labelText
                 label_action: labelAction
 
-                onLabelClicked: console.log("action", action)
+                onLabelClicked: executeAction(labelAction)
             }
         }
     }

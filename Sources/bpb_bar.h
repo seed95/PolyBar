@@ -37,6 +37,9 @@ class BpbBar : public QObject
 public:
     explicit BpbBar(QObject *root, QObject *parent = nullptr);
 
+private slots:
+    void executeCommand(QString action);
+
 private:
     void loadLabels(QString path, QObject *list_ui, bool reverse=false);
     void updateProperty(QString rawProperty, BpbProperty *properties);

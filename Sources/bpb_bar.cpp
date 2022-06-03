@@ -5,9 +5,17 @@ BpbBar::BpbBar(QObject *root, QObject *parent) : QObject(parent)
     left_bar_ui =   root->findChild<QObject*>("LeftBar");
     right_bar_ui =  root->findChild<QObject*>("RightBar");
 
+    connect(left_bar_ui, SIGNAL(executeAction(QString)), this, SLOT(executeCommand(QString)));
+    connect(right_bar_ui, SIGNAL(executeAction(QString)), this, SLOT(executeCommand(QString)));
 
     loadLabels(BPB_LEFT_LABEL_PATH, left_bar_ui);
     loadLabels(BPB_RIGHT_LABEL_PATH, right_bar_ui, true);
+}
+
+/***************** Execute Action Slot *****************/
+void BpbBar::executeCommand(QString action)
+{
+    qDebug() << "execute" << action;
 }
 
 void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)

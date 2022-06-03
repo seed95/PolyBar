@@ -17,7 +17,7 @@ Window {
     maximumWidth: width
     title: "PolyBar"
     color: "#000000"
-    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
+//    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
     // Fonts
     FontLoader

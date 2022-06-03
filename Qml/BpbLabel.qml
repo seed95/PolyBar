@@ -9,8 +9,8 @@ Rectangle {
     property string label_text: ""
     property string label_action: "action"
 
-    //Qml Signals
-    signal labelClicked(string action)
+    // Qml Signals
+    signal labelClicked()
 
     width: label.contentWidth
     color: color_background
@@ -30,12 +30,19 @@ Rectangle {
     MouseArea
     {
         anchors.fill: parent
-//        hoverEnabled: true
+        cursorShape:
+        {
+            if (container.label_action != "")
+            {
+                Qt.PointingHandCursor
+            }
+            else
+            {
+                Qt.ArrowCursor
+            }
+        }
+        enabled: container.label_action != ""
 
-//        onEntered: console.log("enter")
-
-//        onExited: console.log("exit")
-
-        onClicked: labelClicked(container.label_action)
+        onClicked: labelClicked()
     }
 }
