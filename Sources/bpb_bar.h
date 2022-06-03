@@ -8,11 +8,12 @@
 #include <QDebug>
 
 
-#define BPB_LABEL_PATH "Test/test1.txt"
+#define BPB_LEFT_LABEL_PATH     "Test/test1.txt"
+#define BPB_RIGHT_LABEL_PATH    "Test/test2.txt"
 
-#define BPB_DEFAULT_BACKGROUND_COLOR    "#222222"
-#define BPB_DEFAULT_LABEL_COLOR         "#aaaaaa"
-#define BPB_DEFAULT_UNDERLINE_COLOR     "#666666"
+#define BPB_DEFAULT_BACKGROUND_COLOR    "#000000"
+#define BPB_DEFAULT_LABEL_COLOR         "#dfdfdf"
+#define BPB_DEFAULT_UNDERLINE_COLOR     "#f3c84a"
 #define BPB_DEFAULT_ACTION              ""
 
 typedef struct BpbProperty
@@ -37,12 +38,13 @@ public:
     explicit BpbBar(QObject *root, QObject *parent = nullptr);
 
 private:
-    void loadContent(QObject *list_ui);
-    BpbProperty parseProperty(QString property);
+    void loadLabels(QString path, QObject *list_ui, bool reverse=false);
+    void updateProperty(QString rawProperty, BpbProperty *properties);
+    void showLabels(QVector<BpbLabel> labels, QObject *list_ui, bool reverse);
 
 private:
     QObject *left_bar_ui;
-    QVector<BpbLabel> labels;
+    QObject *right_bar_ui;
 };
 
 #endif // BPB_BAR_H

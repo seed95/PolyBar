@@ -12,26 +12,29 @@ Rectangle {
     //Qml Signals
     signal labelClicked(string action)
 
-    width: label.width * 1.5
+    width: label.contentWidth
     color: color_background
 
-    Text {
+    Text
+    {
         id: label
         text: container.label_text
         anchors.centerIn: parent
+        anchors.verticalCenterOffset: -1
         font.family: fontAwesomeSolid.name
-        font.pixelSize: container.height / 2.5
+        font.pixelSize: 15
         color: container.label_color
         font.underline: container.underline
     }
 
-    MouseArea {
+    MouseArea
+    {
         anchors.fill: parent
-        hoverEnabled: true
+//        hoverEnabled: true
 
-        onEntered: console.log("enter")
+//        onEntered: console.log("enter")
 
-        onExited: console.log("exit")
+//        onExited: console.log("exit")
 
         onClicked: labelClicked(container.label_action)
     }

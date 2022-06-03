@@ -15,13 +15,14 @@ SOURCES += Sources/main.cpp \
     Sources/bpb_bar.cpp
 
 
-RESOURCES += Qml/ui.qrc \
-             Resources/fonts.qrc
+RESOURCES += \
+             Resources/fonts.qrc \
+    Qml/ui.qrc
 
-OTHER_FILES += Qml/*.qml
+#OTHER_FILES += Qml/*.qml
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH += Qml/
+#QML_IMPORT_PATH += Qml/
 
 HEADERS += \
     Sources/bpb_bar.h

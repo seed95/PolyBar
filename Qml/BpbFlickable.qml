@@ -3,24 +3,19 @@ import QtQuick 2.0
 Rectangle {
     id: container
 
+    property int direction: Qt.LeftToRight
+
+    // Set this variables in cpp
     property string labelBackgroundColor: ""
-    property bool labelHaveUnderline: false
+    property bool   labelHaveUnderline: false
     property string labelTextColor: ""
     property string labelContent: ""
     property string labelActionString: ""
 
-    //    Component.onCompleted: {
-    //        addLabel()
-    //        addLabel()
-    //        addLabel()
-    //        addLabel()
-    //        addLabel()
-    //        addLabel()
-    //        addLabel()
-    //        addLabel()
-    //        addLabel()
-    //    }
-    Flickable {
+    color: "#000000"
+
+    Flickable
+    {
         id: flickbar
         width: parent.width
         height: parent.height
@@ -29,15 +24,20 @@ Rectangle {
         //        flickableDirection: Flickable.HorizontalFlick
         clip: true
 
-        ListView {
+        ListView
+        {
             id: lv
             height: parent.height
             width: parent.width
             anchors.topMargin: 15
-            model: ListModel {
+            orientation: ListView.Horizontal
+            layoutDirection: direction
+            model: ListModel
+            {
                 id: lm
             }
-            delegate: PbLabel {
+            delegate: BpbLabel
+            {
                 height: parent.height
                 anchors.top: parent.top
                 color_background: colorBackground
@@ -48,15 +48,17 @@ Rectangle {
 
                 onLabelClicked: console.log("action", action)
             }
-
-            orientation: ListView.Horizontal
-            layoutDirection: Qt.LeftToRight
-            //            spacing: 20
-            //            interactive: false
         }
     }
 
-    function addLabel() {
+    /*** Call this function from cpp ***/
+    function clearLabels()
+    {
+        lm.clear()
+    }
+
+    function addLabel()
+    {
         lm.append({
                       "colorBackground": container.labelBackgroundColor,
                       "haveUnderline": container.labelHaveUnderline,

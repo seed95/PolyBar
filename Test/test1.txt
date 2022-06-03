@@ -1,1 +1,1 @@
-%{B#44ffffff} hello %{F#f3c84a} lolo %{A1:"~/.config/polybar/awesomewm/switch.sh" 1:}    %{A} %{B- F-}
+sajad%{B#44ffffff}hello%{F#f3c84a} lolo %{B-}%{F-} dadashi 

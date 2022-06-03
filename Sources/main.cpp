@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setOrganizationName("WBT");
     app.setOrganizationDomain("WBT.com");
-    app.setApplicationName("DocumentManager");
+    app.setApplicationName("PolyBar");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
