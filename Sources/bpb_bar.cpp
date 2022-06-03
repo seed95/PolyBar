@@ -16,7 +16,7 @@ void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)
     if (label_file.open(QIODevice::ReadOnly))
     {
         QString data = label_file.readAll();
-        qDebug() << data;
+//        qDebug() << data;
 
         QVector<BpbLabel> labels;
         BpbProperty properties;
@@ -93,7 +93,7 @@ void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)
 
 void BpbBar::updateProperty(QString rawProperty, BpbProperty *properties)
 {
-    qDebug() << "property" << rawProperty;
+//    qDebug() << "property" << rawProperty;
 
     //Note: unset property must be checked first
     QString unset_backround_property = "B-";

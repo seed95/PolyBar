@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>BpbLabel.qml</file>
         <file>BpbFlickable.qml</file>
+        <file>BpbDateLabel.qml</file>
     </qresource>
 </RCC>

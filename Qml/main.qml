@@ -16,7 +16,7 @@ Window {
     minimumWidth: width
     maximumWidth: width
     title: "PolyBar"
-    color: "#dcdcdc"
+    color: "#000000"
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
     // Fonts
@@ -42,12 +42,20 @@ Window {
     }
 
     // Main
+    BpbDateLabel
+    {
+        id: date_label
+        height: parent.height
+        anchors.centerIn: parent
+        anchors.verticalCenterOffset: 3
+    }
+
     BpbFlickable
     {
         id: left_bar
-        width: parent.width / 2
         height: parent.height
         anchors.left: parent.left
+        anchors.right: date_label.left
         anchors.top: parent.top
         direction: Qt.LeftToRight
         objectName: "LeftBar"
@@ -56,12 +64,15 @@ Window {
     BpbFlickable
     {
         id: right_bar
-        width: parent.width / 2
+//        width: parent.width / 2
         height: parent.height
         anchors.right: parent.right
+        anchors.left: date_label.right
         anchors.top: parent.top
         direction: Qt.RightToLeft
         objectName: "RightBar"
     }
+
+
 
 }
