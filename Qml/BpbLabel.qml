@@ -22,9 +22,9 @@ Rectangle {
     {
         id: label
         text: container.label_text
+        textFormat: Text.RichText
         anchors.centerIn: parent
         anchors.verticalCenterOffset: -1
-        font.family: fontAwesomeSolid.name
         font.pixelSize: 15
         color: container.color_label
     }

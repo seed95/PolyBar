@@ -35,10 +35,10 @@ void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)
         properties.have_underline = false;
         properties.action = BPB_DEFAULT_ACTION;
 
-        int current_index = 0;
-
         QString start_property_characters = "%{", end_property_characters = "}";
         int start_property_index, end_property_index;
+        int current_index = 0;
+        QString content;
         while (current_index<data.length())
         {
             BpbLabel label;
@@ -58,7 +58,9 @@ void BpbBar::loadLabels(QString path, QObject *list_ui, bool reverse)
                 n = start_property_index - current_index;
             }
             //TODO check midRef method
-            label.content = data.mid(current_index, n);
+            content = data.mid(current_index, n);
+            label.content = "<div style = 'font-family: Roboto, fa6-solid'>" + content + "</div>";
+//            label.content = content;
             labels.append(label);
 
             // All labels are read

@@ -1,1 +1,1 @@
-sajad%{B#44ffffff}hello%{F#f3c84a} lolo %{B-}%{F-} dadashi 
+    sajad      %{B#44ffffff}   hello    %{F#f3c84a} lolo %{B-}%{F-} dadashi 

@@ -12,7 +12,7 @@ Window {
     y: 0
     title: "PolyBar"
     color: "#000000"
-//    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
+    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
     // Fonts
     FontLoader
@@ -25,11 +25,16 @@ Window {
         id: fontAwesomeBrand
         source: "qrc:/Fonts/fa6-brands.ttf"
     }
-    FontLoader
-    {
-        id: fontAwesomeRegular
-        source: "qrc:/Fonts/fa6-reg.ttf"
-    }
+//    FontLoader
+//    {
+//        id: fontAwesomeRegular
+//        source: "qrc:/Fonts/fa6-reg.ttf"
+//    }
+//    FontLoader
+//    {
+//        id: fontRobotoMedium
+//        source: "qrc:/Fonts/Roboto-Medium.ttf"
+//    }
     FontLoader
     {
         id: fontRobotoRegular
@@ -42,7 +47,7 @@ Window {
         id: date_label
         height: parent.height
         anchors.centerIn: parent
-        anchors.verticalCenterOffset: 3
+        anchors.verticalCenterOffset: 6
     }
 
     BpbFlickable
